@@ -1,5 +1,5 @@
 # deterring-poaching
-Repository for working paper "Deterring poaching from a common pool resource" (with John Stranlund and John Spraggon)
+Repository for working paper "Deterring poaching from a common pool resource" (with [John Stranlund](https://www.umass.edu/resec/people/stranlun) and [John Spraggon](https://www.umass.edu/resec/people/jmspragg))
 
 # Contents
 
