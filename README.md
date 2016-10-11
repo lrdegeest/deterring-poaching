@@ -16,3 +16,4 @@ Repository for working paper "Deterring poaching from a common pool resource" (w
 ### Efficiency
 
 ### Communication (chat logs & questionnaires)
+* `communication_functions.R` provides helper functions to read and clean the chat logs and functions to search regular expressions in the chat logs
