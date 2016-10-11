@@ -2,7 +2,7 @@ clean_data <- function(treatmentString,sessionNumber){
   "
   Function that loads and cleans a chat data set based on a treatment string and session number
   "
-  data <- paste0("chatlogs_",treatmentString,1,".csv")
+  data <- paste0("chatlogs_",treatmentString,sessionNumber,".csv")
   dt <- data.table(read.csv(data, na.strings = c("", "NA")))
   dt <- na.omit(dt)
   setnames(dt, c("groupID", "text"))
