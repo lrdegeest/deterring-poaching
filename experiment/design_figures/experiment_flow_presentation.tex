@@ -1,0 +1,66 @@
+% to convert to eps, in bash:
+% pdflatex experiment_flow.tex 
+% pdf2ps experiment_flow.pdf experiment_flow.eps
+
+\documentclass[]{standalone}
+\usepackage{tikz} %graphs
+\usetikzlibrary{arrows, shapes, calc, positioning}
+\usetikzlibrary{patterns,decorations.pathreplacing, backgrounds}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\usepackage{xcolor}
+\definecolor{Green}{rgb}{0,255,0}
+\definecolor{Blue}{rgb}{0,0,255}
+
+\tikzstyle{block-o} = [draw, rectangle, font=\footnotesize,
+     text centered, rounded corners,thick, node distance=1cm, fill=Blue!40]
+\tikzstyle{block-i} = [draw, rectangle, font=\footnotesize,
+     text centered, rounded corners, thick, node distance=1cm, fill=Green!40]
+\tikzstyle{cloud} = [draw, rectangle, rounded corners, node distance=2.5cm, fill=white!10]
+\tikzstyle{line} = [draw,  thick, -latex']
+
+
+\begin{document}
+\begin{tikzpicture}[scale=100,background rectangle/.style={fill=gray!60}, show background rectangle]%  
+	%Place nodes
+	\node[cloud] (1) 	{1};
+	%\node[cloud] (2)	[right of=1] {2};
+	\node[cloud] (2)	[right of=1] {2};
+	\node[cloud] (3)  [right of=2] {3};
+	\node[cloud] (4)  [right of=3] {4};
+	\node[cloud] (5)  [right of=4] {5};
+	%i
+	\node[block-i, align=left]     (c)	[above of=1] {Communication \\ (odd period)};
+	%\node[block-i]     (v)	[above of=2] {Vote}; 
+	\node[block-i]     (Ii)	[above of=2] {Investment}; 
+	\node[block-i]     (IEi)	[above of=3] {Initial Payoff}; 
+	\node[block-i]     (d)	[above of=4] {Deductions};
+	\node[block-i]     (FEi)	[above of=5] {Final Payoff}; 
+	\node[] [above of=IEi] {\textbf{Insiders}};
+	%o
+	\node[block-o]     (Io)	[below of=2] {Investment}; 
+	\node[block-o]    (IEo)	[below of=3] {Initial Payoff}; 
+	\node[block-o]     (FEo)	[below of=5] {Final Payoff};  
+	\node[] [below of=IEo] {\textbf{Outsiders}};
+	%Directed edges
+	\path[line](1)--(2);
+	\path[line](2)--(3);
+	\path[line](3)--(4);
+	\path[line](4)--(5);
+	%\path[line](5)--(6);
+	%nondirected edges
+	\path(1) edge node [above] {} (c);
+	%\path(2) edge node [above] {} (v);
+	\path(2) edge node [below] {} (Ii);
+	\path(2) edge node [below] {} (Io);
+	%\path(Ii) edge node [below] {} (Io);
+	\path(3) edge node [above] {} (IEi);
+	\path(3) edge node [above] {} (IEo);
+	%\path(IEi) edge node [above] {} (IEo);
+	\path(4) edge node [below] {} (d);
+	\path(5) edge node [above] {} (FEi);
+	\path(5) edge node [above] {} (FEo);
+	%\path(FEi) edge node [above] {} (FEo);  
+\end{tikzpicture}
+
+\end{document}			

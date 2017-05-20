@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{libertine}
+\usepackage[vmargin=0.3in]{geometry}
+\usepackage{rotating} % for sidewaystable environment
+\usepackage{tabularx} % for tabularx environment
+\usepackage{tabu}
+\newcolumntype{Y}{>{\center\arraybackslash}X}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{sidewaystable}
+\section*{\scshape Personal Record Table}
+\small % 10% reduction of fontsize, i.e., from 10pt to 9pt
+\setlength\tabcolsep{1.8pt} % default value: 6pt
+%\caption{Personal Record Table}
+
+\medskip
+
+
+\begin{tabu} to 0.3\textwidth { | X[c] | X[c] |}
+   \hline
+   &\\
+   \textbf{My Group} & \\
+   &\\
+   \hline
+    &\\
+   \textbf{My Group ID}   &   \\
+    &\\
+   \hline
+\end{tabu}
+
+\medskip
+
+\begin{tabularx}{\linewidth}{|c|*{14}{Y|}}
+\hline
+& \textbf{My Investment}
+& \textbf{Total Investment}
+& \textbf{Group 1 Investment}
+& \textbf{Group 2 Investment}
+& \textbf{Total payoff from The Account}
+& \textbf{My payoff from The Account}
+& \textbf{My private payoff}
+& \textbf{My initial payoff}
+& \textbf{Cost of assigned deductions}
+& \textbf{Number of deduction points received}
+& \textbf{Loss from received deductions}
+& \textbf{Total cost of deductions}
+& \textbf{Final payoff for this period}
+& \textbf{Total payoff for all periods}\\
+\hline\hline
+\textbf{1} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{2} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{3} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{4} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{5} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{6} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{7} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{8} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{9} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{10} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{11} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{12} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{13} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{14} & & & & & & & & & & & & & &\\[2ex]\hline
+\textbf{15} & & & & & & & & & & & & & &\\[2ex]\hline
+
+\end{tabularx}
+\end{sidewaystable}
+
+
+\newpage
+
+
+
+
+
+
+\end{document}

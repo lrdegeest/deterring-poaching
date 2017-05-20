@@ -1,0 +1,479 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     16232,        470]
+NotebookOptionsPosition[     15532,        440]
+NotebookOutlinePosition[     15910,        457]
+CellTagsIndexPosition[     15867,        454]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"z", "[", "g_", "]"}], ":=", 
+   RowBox[{"n", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"c", " ", 
+       RowBox[{"(", 
+        RowBox[{"e", "-", "g"}], ")"}]}], " ", "+", " ", 
+      RowBox[{"g", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", 
+          RowBox[{"(", 
+           RowBox[{"n", " ", "g"}], ")"}]}]}], ")"}]}]}], 
+     "\[IndentingNewLine]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", "8"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", "31"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "0.4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tablezall", " ", "=", " ", 
+   RowBox[{"N", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"z", "[", "g", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"g", ",", "0", ",", "12"}], "}"}]}], "]"}], ",", "2"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tablezi", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"z", "[", "g", "]"}], "/", "n"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "0", ",", "12"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Payoffs8", " ", "=", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"tablezall", ",", "tablezi"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"part1", " ", "=", " ", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"Payoffs8", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Total Payoffs\>\"", ",", "\"\<Initial Payoffs\>\""}], 
+      "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"part2", " ", "=", " ", 
+   RowBox[{"MapThread", "[", 
+    RowBox[{"Prepend", ",", 
+     RowBox[{"{", 
+      RowBox[{"part1", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Everyone (8) Invests\>\"", ",", "\"\<0\>\"", ",", 
+         "\[IndentingNewLine]", "\"\<1\>\"", ",", "\"\<2\>\"", ",", 
+         "\"\<3\>\"", ",", "\"\<4\>\"", ",", "\"\<5\>\"", ",", "\"\<6\>\"", 
+         ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<9\>\"", ",", 
+         "\"\<10\>\"", ",", "\"\<11\>\"", ",", "\"\<12\>\""}], "}"}]}], 
+      "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", 
+  RowBox[{"part2", ",", "\[IndentingNewLine]", 
+   RowBox[{"Spacings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.594247365613537*^9, 3.594247485077189*^9}, {
+  3.594247538690097*^9, 3.594247540934884*^9}, {3.59424771748265*^9, 
+  3.594247766693287*^9}, {3.594247837372095*^9, 3.5942478417776737`*^9}, {
+  3.594247890432248*^9, 3.594247919194388*^9}, {3.59424812047475*^9, 
+  3.594248174859209*^9}, {3.594248230472147*^9, 3.594248271783798*^9}, {
+  3.5942494547844667`*^9, 3.5942496490705833`*^9}, {3.5942497298301973`*^9, 
+  3.594249730561172*^9}, {3.5942498180889997`*^9, 3.5942498467371397`*^9}, {
+  3.594495885354039*^9, 3.594495892849464*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Everyone (8) Invests\"\>", "\<\"Total Payoffs\"\>", "\<\"Initial \
+Payoffs\"\>"},
+    {"\<\"0\"\>", "192.`", "24.`"},
+    {"\<\"1\"\>", "398.4`", "49.8`"},
+    {"\<\"2\"\>", "553.6`", "69.2`"},
+    {"\<\"3\"\>", "657.5999999999999`", "82.19999999999999`"},
+    {"\<\"4\"\>", "710.4`", "88.8`"},
+    {"\<\"5\"\>", "712.`", "89.`"},
+    {"\<\"6\"\>", "662.3999999999999`", "82.79999999999998`"},
+    {"\<\"7\"\>", "561.5999999999999`", "70.19999999999999`"},
+    {"\<\"8\"\>", "409.5999999999999`", "51.19999999999999`"},
+    {"\<\"9\"\>", "206.39999999999995`", "25.799999999999994`"},
+    {"\<\"10\"\>", 
+     RowBox[{"-", "48.`"}], 
+     RowBox[{"-", "6.`"}]},
+    {"\<\"11\"\>", 
+     RowBox[{"-", "353.60000000000025`"}], 
+     RowBox[{"-", "44.20000000000003`"}]},
+    {"\<\"12\"\>", 
+     RowBox[{"-", "710.4000000000005`"}], 
+     RowBox[{"-", "88.80000000000007`"}]}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.594249568025998*^9, 3.5942495900285683`*^9}, 
+   3.594249657489139*^9, 3.594249732480063*^9, 3.594249848462475*^9, 
+   3.594495913796782*^9, 3.595938318823271*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"z", "[", "g_", "]"}], ":=", 
+   RowBox[{"n", " ", 
+    RowBox[{"(", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"c", " ", 
+       RowBox[{"(", 
+        RowBox[{"e", "-", "g"}], ")"}]}], " ", "+", " ", 
+      RowBox[{"g", 
+       RowBox[{"(", 
+        RowBox[{"a", "-", 
+         RowBox[{"b", 
+          RowBox[{"(", 
+           RowBox[{"n", " ", "g"}], ")"}]}]}], ")"}]}]}], 
+     "\[IndentingNewLine]", ")"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", "5"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"c", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", "31"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "0.4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"e", "=", "12"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tablezall", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"z", "[", "g", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "0", ",", "12"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tablezi", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"z", "[", "g", "]"}], "/", "n"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"g", ",", "0", ",", "12"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Payoffs5", " ", "=", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"tablezall", ",", "tablezi"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"part1", " ", "=", " ", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"Payoffs5", ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Total Payoffs\>\"", ",", "\"\<Initial Payoffs\>\""}], 
+      "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"part2", " ", "=", " ", 
+   RowBox[{"MapThread", "[", 
+    RowBox[{"Prepend", ",", 
+     RowBox[{"{", 
+      RowBox[{"part1", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Everyone (5) Invests\>\"", ",", "\"\<0\>\"", ",", 
+         "\[IndentingNewLine]", "\"\<1\>\"", ",", "\"\<2\>\"", ",", 
+         "\"\<3\>\"", ",", "\"\<4\>\"", ",", "\"\<5\>\"", ",", "\"\<6\>\"", 
+         ",", "\"\<7\>\"", ",", "\"\<8\>\"", ",", "\"\<9\>\"", ",", 
+         "\"\<10\>\"", ",", "\"\<11\>\"", ",", "\"\<12\>\""}], "}"}]}], 
+      "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", 
+  RowBox[{"part2", ",", "\[IndentingNewLine]", 
+   RowBox[{"Spacings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.594249753975142*^9, 3.594249757762383*^9}, {
+  3.59449590101684*^9, 3.5944959058415403`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Everyone (5) Invests\"\>", "\<\"Total Payoffs\"\>", "\<\"Initial \
+Payoffs\"\>"},
+    {"\<\"0\"\>", "120.`", "24.`"},
+    {"\<\"1\"\>", "255.`", "51.`"},
+    {"\<\"2\"\>", "370.`", "74.`"},
+    {"\<\"3\"\>", "465.`", "93.`"},
+    {"\<\"4\"\>", "540.`", "108.`"},
+    {"\<\"5\"\>", "595.`", "119.`"},
+    {"\<\"6\"\>", "630.`", "126.`"},
+    {"\<\"7\"\>", "645.`", "129.`"},
+    {"\<\"8\"\>", "640.`", "128.`"},
+    {"\<\"9\"\>", "615.`", "123.`"},
+    {"\<\"10\"\>", "570.`", "114.`"},
+    {"\<\"11\"\>", "505.`", "101.`"},
+    {"\<\"12\"\>", "420.`", "84.`"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{3.594250457886574*^9, 3.594495918579468*^9, 
+  3.5959383189164047`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"z", "[", "G_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{"a", " ", "G"}], "-", 
+    RowBox[{"b", " ", 
+     RowBox[{"G", "^", "2"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"a", "=", "31"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"b", "=", "0.4"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T", " ", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"z", "[", "G", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"G", ",", "0", ",", 
+       RowBox[{"12", "*", "8"}]}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R", " ", "=", " ", 
+   RowBox[{"Range", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"12", "*", "8"}], ",", "1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PlotTR", " ", "=", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"R", ",", "T"}], "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"T2", " ", "=", 
+   RowBox[{"N", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"z", "[", "G", "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"G", ",", "0", ",", 
+         RowBox[{"12", "*", "8"}], ",", "4"}], "}"}]}], "]"}], ",", "0"}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"R2", " ", "=", " ", 
+   RowBox[{"Range", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"12", "*", "8"}], ",", "4"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"AccountPayoffs", " ", "=", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"R2", ",", "T2"}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"part1", " ", "=", " ", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"AccountPayoffs", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Investment in the Account (# of tokens)\>\"", ",", 
+       "\"\<Total Payoffs\>\""}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Grid", "[", 
+  RowBox[{"part1", ",", "\[IndentingNewLine]", 
+   RowBox[{"Spacings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1"}], "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "\[IndentingNewLine]", 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.594495008100436*^9, 3.59449509585151*^9}, {
+   3.594495144071876*^9, 3.594495176217292*^9}, {3.594495415280961*^9, 
+   3.5944956496134167`*^9}, {3.594495683338093*^9, 3.594495723895301*^9}, {
+   3.594495774235304*^9, 3.594495855880699*^9}, 3.594495923764907*^9, {
+   3.594495972724527*^9, 3.594495980274171*^9}, {3.594496049209943*^9, 
+   3.594496126495491*^9}, {3.594496159867139*^9, 3.5944962329144917`*^9}, {
+   3.594498246730592*^9, 3.5944982801415663`*^9}, {3.594498331538517*^9, 
+   3.594498340195025*^9}, {3.594498379737368*^9, 3.594498404780332*^9}, 
+   3.594498494299472*^9, {3.594498739909835*^9, 3.5944987813311787`*^9}, {
+   3.594498874975108*^9, 3.5944988951776733`*^9}}],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Investment in the Account (# of tokens)\"\>", "\<\"Total \
+Payoffs\"\>"},
+    {"0", "0.`"},
+    {"4", "117.6`"},
+    {"8", "222.4`"},
+    {"12", "314.4`"},
+    {"16", "393.6`"},
+    {"20", "460.`"},
+    {"24", "513.6`"},
+    {"28", "554.4`"},
+    {"32", "582.4`"},
+    {"36", "597.6`"},
+    {"40", "600.`"},
+    {"44", "589.5999999999999`"},
+    {"48", "566.4`"},
+    {"52", "530.3999999999999`"},
+    {"56", "481.5999999999999`"},
+    {"60", "420.`"},
+    {"64", "345.5999999999999`"},
+    {"68", "258.39999999999986`"},
+    {"72", "158.4000000000001`"},
+    {"76", "45.59999999999991`"},
+    {"80", 
+     RowBox[{"-", "80.`"}]},
+    {"84", 
+     RowBox[{"-", "218.4000000000001`"}]},
+    {"88", 
+     RowBox[{"-", "369.60000000000036`"}]},
+    {"92", 
+     RowBox[{"-", "533.6000000000004`"}]},
+    {"96", 
+     RowBox[{"-", "710.4000000000001`"}]}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+   GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{1}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.594498763902548*^9, 3.5944987820379333`*^9}, 
+   3.59449889615536*^9, 3.595938318958253*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"PlotTR", ",", "\[IndentingNewLine]", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<The Account Investment\>\"", ",", "\"\<The Account Payoffs\>\""}], 
+     "}"}]}], ",", "\[IndentingNewLine]", 
+   RowBox[{"LabelStyle", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Bold", ",", 
+      RowBox[{"GrayLevel", "[", "0.3", "]"}], ",", "11"}], "}"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"ImageSize", "\[Rule]", "500"}]}], "\[IndentingNewLine]", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.594499253464526*^9, 3.5944993116637297`*^9}, {
+  3.59449934896497*^9, 3.594499376650797*^9}, {3.595938295633596*^9, 
+  3.595938314755541*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, 
+   {RGBColor[0.24720000000000014`, 0.24, 0.6], PointBox[CompressedData["
+1:eJxtlE1IVFEUxx8hEdgiqEWCi0lCSqQmxyyz8vjRfOSo8z1JBjamDWn5MVNq
+TXazcNMyEcdVEASCO0OIWjwoosBAEFq7iDZtXAXtmnf//7MIujAcfu9//ve+
+ueecdyw3kRjZ5zjOzcrPi/9fe+2rZW9dFj6QgF195ANi9YEM+ZCM2nWDfATR
+lyMfhb8wQq6Vb1uVtZ4n+8BbY+Q65O/cIx9H3J0k1+P8yDT5BM5/UyA3gH8X
+yY3Ib31APoU4OUP2Qy/Pks/AvzlHbgJ/fkgOIP/rI3Izolsin4W+9pjcAv/i
+PPkcOPOEfB7//6AhtyLmlS+IvZ4Pym24n+qn5IvgpPIl5C8ps47byu3QqxbI
+wvqSDfm66h3IL6negbiieifrqXon/O9V7wJ/VL0L+Z9U7+b9qd6N896qfgX+
+16qTX6geRP646kHEsOoh6LWqh+D/pfcRBm+QTRj5RdUjiH7VI9B/aD2uSpPn
+f0k25DbVe2TF64d3rLfpQdzTfohCryGbqNzy+qNF+6cXHGR/mV7kR7T/OJfC
+/jR90E9q//bDv5/9bcjfdR5iyC/f5z4xxBjnx1D/w3lzY/AvT9EfB9dzPiUu
+ftuPd+mP8/kd+qkfvk1/QrbthQ4zjzw+RH9Chrz9fw7Qn/g3OklxrZ91l6Q4
+tsE456bCtsCnXfiSaPCNENhJcZ8UWFLyyn7fBsEmhfxCjn7yzij9abxvdIz+
+NPbbnaA/LXlbv2n609h/rUh/BlwzQ38G+ctz9PM76yvRT31znv4szl839JOr
+FujPSrP3vsPP6M9ivy/P6b8GPbDo/gXJnH/F
+     "]]}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"The Account Investment\"", TraditionalForm], 
+    FormBox["\"The Account Payoffs\"", TraditionalForm]},
+  AxesOrigin->{0, 0.},
+  ImageSize->500,
+  LabelStyle->{Bold, 
+    GrayLevel[0.3], 11},
+  Method->{},
+  PlotRange->{{0, 96.}, {-710.4000000000001, 600.6}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{1.92, 1.92}, {26.22, 26.22}}]], "Output",
+ CellChangeTimes->{
+  3.59449925819589*^9, 3.5944992970280046`*^9, {3.594499351097024*^9, 
+   3.594499377418201*^9}, 3.595938319152022*^9}]
+}, Open  ]]
+},
+WindowSize->{895, 805},
+WindowMargins->{{176, Automatic}, {18, Automatic}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 3293, 87, 318, "Input"],
+Cell[3875, 111, 1348, 31, 371, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5260, 147, 2786, 79, 318, "Input"],
+Cell[8049, 228, 939, 24, 371, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9025, 257, 2930, 80, 250, "Input"],
+Cell[11958, 339, 1254, 41, 671, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13249, 385, 715, 17, 97, "Input"],
+Cell[13967, 404, 1549, 33, 275, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

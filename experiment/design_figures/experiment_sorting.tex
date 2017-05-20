@@ -1,0 +1,73 @@
+% to convert to eps, in bash:
+% pdflatex experiment_flow.tex 
+% pdf2ps experiment_sorting.pdf experiment_sorting.eps
+\documentclass[]{standalone}
+\usepackage{tikz} %graphs
+\usetikzlibrary{arrows, shapes, calc, positioning}
+\usetikzlibrary{patterns,decorations.pathreplacing}
+
+\begin{document}
+
+\tikzstyle{n} = [fill=gray!40,draw, circle, inner sep=0pt,node distance=0.8cm,
+    minimum height=1em]
+\tikzstyle{b} = [inner sep=0pt, node distance=1cm]    
+\tikzstyle{i} = [fill=gray!40,draw, circle, inner sep=0pt,node distance=0.8cm,
+    minimum height=1em]
+\tikzstyle{o} = [fill=gray!40,draw, circle, inner sep=0pt, node distance=0.8cm,
+    minimum height=1em]
+\tikzstyle{b} = [inner sep=0pt, node distance=1cm]    
+    
+\begin{tikzpicture}
+	%Place nodes
+	%n
+	\node[n] (1){};
+	\node[n] (2) [right of=1] {};
+	\node[n] (3) [right of=2] {};
+	\node[n] (4) [right of=3] {};
+	\node[n] (5) [below of=1] {};
+	\node[n] (6) [right of=5] {};
+	\node[n] (7) [right of=6] {};
+	\node[n] (8) [right of=7] {};
+	\node[b] (9) [below of=5] {};
+	\node[n] (10) [below of=9]  {};
+	\node[n] (11) [right of=10]  {};
+	\node[n] (12) [right of=11] {};
+	\node[n] (13) [right of=12] {};
+	\node[n] (14) [below of=10]  {};
+	\node[n] (15) [right of=14] {};
+	\node[n] (16) [right of=15] {};
+	\node[n] (17) [right of=16] {};
+	\node[b] (18) [below of=14] {};
+	% caption
+	\node at (1,-5) {(a) Participants};
+\end{tikzpicture}
+\qquad\qquad\qquad
+%
+\begin{tikzpicture}	
+	%Place nodes
+	%1
+	\node[i] (1) {$1$};
+	\node[i] (2) [right of=1] {$1$};
+	\node[i] (3) [right of=2] {$1$};
+	\node[i] (4) [right of=3] {$1$};
+	\node[i] (5) [right of=4] {$1$};
+	\node[o] (6) [below of=1] {$2$};
+	\node[o] (7) [right of=6] {$2$};
+	\node[o] (8) [right of=7] {$2$};
+	\node[b] (9) [below of=6] {};
+	\draw (1.5,-0.35) ellipse (2.7cm and 1cm);	
+	%2
+	\node[i] (10) [below of=9]  {$1$};
+	\node[i] (11) [right of=10] {$1$};
+	\node[i] (12) [right of=11] {$1$};
+	\node[i] (13) [right of=12] {$1$};
+	\node[i] (14) [right of=13] {$1$};
+	\node[o] (15) [below of=10] {$2$};
+	\node[o] (16) [right of=15] {$2$};
+	\node[o] (17) [right of=16] {$2$};
+	\node[b] (18) [below of=15] {};
+	\draw (1.5,-2.95) ellipse (2.7cm and 1cm);
+	% caption
+	\node at (1.5,-5) {(b) Sorting};
+\end{tikzpicture}    
+\end{document}
