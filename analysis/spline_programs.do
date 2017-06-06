@@ -4,7 +4,7 @@
 
 program setup
 
-	cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Data"
+	cd "/Users/LawrenceDeGeest/Desktop/notebook/research/dissertation/first_paper/deterring-poaching/data"
 	
 	set scheme lean1
 	graph set window fontface Times 
@@ -61,17 +61,14 @@ program setup
 	
 end
 
-
-
 *===============================================================================	
 // Insiders	
 *===============================================================================
 
 program estimate_insider_spline
-
 	preserve
 	keep if type == 1
-	* initial estimation
+	* intitial estimation using xtreg controling for subject fixed effects
 	qui xtreg s x1_11 x2_11 x1_21 x2_21 x1_31 x2_31 i.period if type == 1, fe vce(cluster group)
 	* store coefficients into macros to use in hockey stick estimation
 	* constant
@@ -85,7 +82,7 @@ program estimate_insider_spline
 	* full
 	local b5 = _b[x1_31]
 	local b6 = _b[x2_31] // right slope
-	* hockey stick estimation
+	* hockey stick
 	qui nl (s = {cons=`cons'} + /// 
 		{b1=`b1'}*h*zero + {b2=`b2'}*max(h - {k1=5},0)*zero + /// 
 		{b3=`b3'}*h*partial + {b4=`b4'}*max(h - {k2=5},0)*partial +  ///
@@ -94,11 +91,8 @@ program estimate_insider_spline
 	restore
 end
 
-
-
 // visualize splines
 program plot_insider_spline
-
 	* predict
 	matrix T = r(table)
 	predict s_hat, yhat
@@ -148,9 +142,8 @@ program plot_insider_spline
 		xtitle("Harvest") ytitle("Estimated Sanctions") ///
 		legend(ring(0) pos(11) cols(1) lab(1 "Zero") lab(2 "Partial") lab(3 "Full")) ///
 		subtitle("{bf:Insiders}") name(splinesIn, replace) nodraw
-
 end
-	
+
 *===============================================================================
 // Outsiders
 *===============================================================================
@@ -158,7 +151,7 @@ end
 program estimate_outsider_spline
 	preserve
 	keep if type == 2
-	* intitial estimation using xtreg controling for random effects
+	* intitial estimation using controling for subject fixed effects
 	qui xtreg s x1_22 x2_22 x1_32 x2_32 i.period if type == 2, fe vce(cluster group)
 	* store coefficients into macros to use in hockey stick estimation
 	* constant
@@ -179,7 +172,6 @@ end
 
 // visualize splines
 program plot_outsider_spline
-
 	* predict
 	matrix T = r(table)
 	predict s_hat, yhat
@@ -216,7 +208,6 @@ program plot_outsider_spline
 		xtitle("Poaching") ytitle(" ") ///
 		legend(ring(0) pos(11) cols(1) lab(1 "Partial") lab(2 "Full")) ///
 		subtitle("{bf:Outsiders}") name(splinesOut, replace) nodraw
-
 end
 
 *===============================================================================
@@ -224,13 +215,9 @@ end
 *===============================================================================
 
 program plot_joint_spline
-		
 	graph combine splinesIn splinesOut, /// 
 	ycommon ///
 	graphregion(color(white))
-	
-	cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Figures"
 	graph set eps fontface Times
 	graph export splines.eps, replace 
-
 end	

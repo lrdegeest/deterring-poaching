@@ -1,7 +1,7 @@
 // load programs
 clear
 program drop _all
-do "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Programs/Sanctions/spline_programs.do"
+do "/Users/LawrenceDeGeest/Desktop/notebook/research/dissertation/first_paper/deterring-poaching/analysis/spline_programs.do"
 
 // run and plot insider spline
 setup
@@ -27,8 +27,6 @@ test _b[k2:_cons] = _b[k3:_cons] // p = 0.46
 test _b[b4:_cons] = _b[b6:_cons] // p = 0.00, FM > PM
 
 // plot
-
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/presentations"
 plot_joint_spline
 graph export spline.pdf, replace
 
