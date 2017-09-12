@@ -4,7 +4,6 @@
 
 program setup
 
-	cd "/Users/LawrenceDeGeest/Desktop/notebook/research/dissertation/first_paper/deterring-poaching/data"
 	
 	set scheme lean1
 	graph set window fontface Times 
@@ -135,9 +134,9 @@ program plot_insider_spline
 	* merge data
 	use zero_in, clear
 	merge subject using partial_in full_in
-	tw	(line s_hat1 h1, lp(".-") lcolor("0 255 0") lwidth(medthick) sort) ///
-		(line s_hat2 h2, lp(_) lcolor("0 255 0") lwidth(medthick) sort) ///
-		(line s_hat3 h3, lp(l) lcolor("0 255 0") lwidth(medthick)  sort), ///
+	tw	(line s_hat1 h1, lp(".-") lwidth(medthick) sort) ///
+		(line s_hat2 h2, lp(_)  lwidth(medthick) sort) ///
+		(line s_hat3 h3, lp(l) lwidth(medthick)  sort), ///
 		xlab(0(4)12) ///
 		xtitle("Harvest") ytitle("Estimated Sanctions") ///
 		legend(ring(0) pos(11) cols(1) lab(1 "Zero") lab(2 "Partial") lab(3 "Full")) ///
@@ -202,8 +201,8 @@ program plot_outsider_spline
 	* merge data
 	use partial_out, clear
 	merge subject using full_out
-	tw	(line s_hat2 h2, lp(_) sort lcolor("0 0 255") lwidth(medthick) ) ///
-		(line s_hat3 h3, lp(l) sort lcolor("0 0 255") lwidth(medthick) ), ///
+	tw	(line s_hat2 h2, lp(_) sort lwidth(medthick) ) ///
+		(line s_hat3 h3, lp(l) sort lwidth(medthick) ), ///
 		xlab(0(4)12) ///
 		xtitle("Poaching") ytitle(" ") ///
 		legend(ring(0) pos(11) cols(1) lab(1 "Partial") lab(2 "Full")) ///

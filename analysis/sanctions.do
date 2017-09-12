@@ -1,7 +1,6 @@
 * =========================
-*	2. Sanctions Part 1
+*	Sanctions
 * =========================
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Data"
 use dp_data, clear
 
 * table of averages and standard deviations

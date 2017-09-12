@@ -2,7 +2,6 @@
 * DATA
 * ==========================================================
 
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/analysis/data"
 use dp_data, clear
 
 * =========================
@@ -30,8 +29,8 @@ foreach i in 1 2 {
 	**compare partial second to zero and full second for outsiders 
 	if `i' == 2 {
 		display "compare partial second to zero and full second for outsiders"
-		test -2.treatment - 2.treatment#2.first = 0 // 4.00, 0.0454
-		test 3.treatment + 3.treatment#2.first - 2.first - 2.treatment#2.first = 0 // 13.65, 0.00
+		test -2.treatment - 2.treatment#2.first = 0 
+		test 3.treatment + 3.treatment#2.first - 2.first - 2.treatment#2.first = 0 
 	}
 	
 }

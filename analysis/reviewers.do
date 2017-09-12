@@ -1,5 +1,3 @@
-use ~/Desktop/notebook/research/dissertation/first_paper/analysis/data/dp_data_with_sanctions_breakdown.dta, clear
-
 *===============================================================================
 * 1. Examine types of insiders who sanction outsiders
 *===============================================================================

@@ -1,7 +1,7 @@
 // load programs
 clear
 program drop _all
-do "/Users/LawrenceDeGeest/Desktop/notebook/research/dissertation/first_paper/deterring-poaching/analysis/spline_programs.do"
+do "spline_programs.do"
 
 // run and plot insider spline
 setup
@@ -9,22 +9,22 @@ estimate_insider_spline
 plot_insider_spline
 * inference
 ** test differences in knots
-test _b[k1:_cons] = _b[k2:_cons] // p = 0.04, ZM > PM
-test _b[k1:_cons] = _b[k3:_cons] // p = 0.02, ZM > FM
-test _b[k2:_cons] = _b[k3:_cons] // p = 0.85
+test _b[k1:_cons] = _b[k2:_cons] 
+test _b[k1:_cons] = _b[k3:_cons] 
+test _b[k2:_cons] = _b[k3:_cons] 
 ** test differences in slopes
-test _b[b2:_cons] = _b[b4:_cons] // p = 0.01, ZM > PM
-test _b[b2:_cons] = _b[b6:_cons] // p = 0.00, ZM > FM
-test _b[b4:_cons] = _b[b6:_cons] // p = 0.43
+test _b[b2:_cons] = _b[b4:_cons] 
+test _b[b2:_cons] = _b[b6:_cons] 
+test _b[b4:_cons] = _b[b6:_cons] 
 
 // run and plot outsider spline
 setup
 estimate_outsider_spline
 plot_outsider_spline
 // test differences in knots
-test _b[k2:_cons] = _b[k3:_cons] // p = 0.46
+test _b[k2:_cons] = _b[k3:_cons] 
 // test differences in slopes
-test _b[b4:_cons] = _b[b6:_cons] // p = 0.00, FM > PM
+test _b[b4:_cons] = _b[b6:_cons] 
 
 // plot
 plot_joint_spline

@@ -2,19 +2,12 @@
 * Estimate changes in harvest following sanctions
 * ==========================================================
 
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Data"
 use dp_data, clear
 replace mon = 1 if treatment == 3
-keep if mon == 1 // drop zm outsiders (180) and pm outsiders mon==0 (120). 1140 observations left
-
-
-// drop outliers
-//drop if s == 149 & treatment == 2 // drop outlier insider
-//drop if treatment == 2 & h == 0 & s == 18 //drop outlier outsider	
+keep if mon == 1 // drop zm outsiders (180) and pm outsiders mon==0 (120). 
 
 // set controls
 global controls i.treatment#i.first#c.ls i.treatment#i.first#c.ldev i.period
-
 
 // Insiders
 quietly eststo IN_under: xtreg deltah $controls if type == 1 & lOverUnder == 0, fe cluster(group)
@@ -25,6 +18,7 @@ quietly eststo OUT_under: xtreg deltah $controls if type == 2 & lOverUnder == 0,
 quietly eststo OUT_over: xtreg deltah $controls if type == 2 & lOverUnder == 1, fe cluster(group)
 
 
+// plot
 coefplot(IN_under, label("{it:Below} group mean") msize(small) msymbol(Sh) mcolor("0 255 0")) ///
 		(IN_over, label("{it:Above} group mean") msize(small) mcolor("0 255 0")) , ///
 			yscale(alt) /// 
