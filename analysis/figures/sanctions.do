@@ -1,4 +1,3 @@
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Data"
 graph set window fontface PTSerif-Regular
 graph set eps fontface Times
 set scheme lean1

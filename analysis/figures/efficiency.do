@@ -1,7 +1,6 @@
 *===============================================================================
 * efficiency insiders + outsiders (intial + final)
 *===============================================================================
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Data"
 use HarvestEfficiency, clear
 label var period "Period"
 set scheme lean1
@@ -52,7 +51,6 @@ grc1leg ///
 	graphregion(color(white)) ///
 	legendfrom(zeroIn_E) name(efficiency,replace) 
 	
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Figures"
 graph export efficiency.eps, replace
 graph export efficiency.pdf, replace
 
@@ -88,5 +86,4 @@ grc1leg ///
 	graphregion(color(white)) ///
 	legendfrom(zeroIn_E) name(eff_in,replace) 
 graph display eff_in, ysize(4) xsize(8)	
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/presentations/esa/images"
 graph export eff_in.pdf, replace

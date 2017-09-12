@@ -2,13 +2,10 @@
 * best response plot with insider cooperative and noncooperative strategies
 * insiders (h + br_c + br_nc)
 *===============================================================================
-cd "/Users/LawrenceDeGeest/Documents/DE_analysis_15/Data"
 use BestResponse.dta, clear	
-
 graph set window fontface PTSerif-Regular
 graph set eps fontface Times
 set scheme lean1
-
 
 *===============================================================================
 * FOR PAPER
