@@ -142,11 +142,6 @@ graph bar (sum) s_a_insider, over(treatment) over(first) asyvars title("sanction
 graph bar (sum) s_a_outsider, over(treatment) over(first) asyvars title("sanctions on outsiders") ytitle("expenditure ({c S|})") bar(1, color(red)) bar(2, color(green)) bar(3, color(blue)) blabel(total) name(bar_out_time, replace) nodraw
 grc1leg bar_total bar_in bar_out, ycommon title("Expenditures on sanctions") cols(3)
 
-// for stack overflow post
-graph bar (sum) s_a_insider if treatment > 1, over(treatment) asyvars title("good A") ytitle("spent ({c S|})") bar(1, color(gray)) bar(2, color(black)) blabel(total) name(bar_in, replace) legend(lab(1 "control") lab(2 "treatment")) nodraw
-graph bar (sum) s_a_outsider if treatment > 1, over(treatment) asyvars title("good B") ytitle("spent ({c S|})") bar(1, color(gray)) bar(2, color(black)) blabel(total) name(bar_out, replace) nodraw
-grc1leg bar_in bar_out, ycommon cols(2)
-
 * distributions
 preserve 
 keep if treatment > 1
